@@ -1,7 +1,10 @@
 public class DoubleToBinary(){
  public static void main (String[] args) throws java.lang.Exception{
-    printBin(72.55); //should produce ERROR
-		printBin(72.5); //should produce 1001000.1
+    	//some miscellaneous test cases
+	printBin(72.55); //should produce ERROR
+	printBin(72.5); //should produce 1001000.1
+	printBin(3.5); //should produce 11.1
+	printBin(93838.125); //should produce 10110111010001110.001
   }
   //function to convert a double to binary and print the result
   //first uses integer conversion methods then fractional conversion methods for a clean solution

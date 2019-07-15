@@ -21,12 +21,16 @@ public class DoubleToBinary(){
 	for(int i = bin.length()-1; i >= 0; i--){
 		result += bin.charAt(i);
 	}
-	//now for the fraction part
+	
+	//and then inserting our decimal place
 	result += ".";
+
+	//now to convert the fractional part
 	int digitCounter=0;
-	String frac = Double.toString(x).substring(Double.toString(x).indexOf('.'));
-	String num = "0" + frac;
-	double numD = Double.parseDouble(num);
+	double numD = getDecimalOnly(x);
+	
+	//the process for converting a fraction to binary
+	//with the added check that our binary number doesn't have more than 32 places after the decimal
     while(!checkIfInteger(numD) && digitCounter < 32){
         numD = numD * 2.0;
         int n = (int) numD;
@@ -34,14 +38,17 @@ public class DoubleToBinary(){
         numD = getDecimalOnly(numD);
         digitCounter++;
     }
+	
+	//this prints the number if it didn't get cut off from being too long
     if(!checkIfInteger(numD)){
         System.out.println("ERROR");
     }
     else{
-        
-    System.out.println(result);
+    	System.out.println(result);
     }
 }
+
+	//helper method to check if our double is actually an integer number
     public static boolean checkIfInteger(double x){
         int temp = (int)x;
         double tempCheck = (double)temp;
@@ -52,10 +59,12 @@ public class DoubleToBinary(){
             return false;
         }
     }
+	
+	//helper method to just get the fractional part of a number
     public static double getDecimalOnly(double x){
         String frac = Double.toString(x).substring(Double.toString(x).indexOf('.'));
-	    String num = "0" + frac;
-	    return Double.parseDouble(num);
+	 String num = "0" + frac;
+	 return Double.parseDouble(num);
     }
     
 }

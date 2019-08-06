@@ -1,4 +1,4 @@
-public class DoubleToBinary(){
+public class DoubleToBinary{
  public static void main (String[] args) throws java.lang.Exception{
     	//some miscellaneous test cases
 	printBin(72.55); //should produce ERROR
